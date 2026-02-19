@@ -14,7 +14,6 @@
 		int x = 100;
 		int y = 0;
 		out.println(x/y);
-	
 	%>
 </body>
 </html>
