@@ -4,6 +4,16 @@ public class Customer {
 	private int id;
 	private String name;
 	private Address adr;
+	
+	public Customer() {
+		
+	}
+	
+	public Customer(int id, String name, Address adr) {
+		this.id = id;
+		this.name = name;
+		this.adr = adr;
+	}
 	public int getId() {
 		return id;
 	}
@@ -24,7 +34,7 @@ public class Customer {
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", adr=" + adr + "]";
+		return "Customer [id=" + id + ", name=" + name + ", \n adr= " + adr + "]";
 	}
 	
 }
