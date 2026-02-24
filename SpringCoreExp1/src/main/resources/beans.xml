@@ -9,13 +9,19 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
-		
-	<bean id = "bk" class = "com.test.Book" scope = "singleton">
+	
+	<bean id="bdobj" class="com.test.BookDetails">
+		<property name = "pages" value ="650"></property>
+		<property name = "publisher" value ="RamaMatt"></property>
+		<property name = "pyear" value ="2023"></property>
+	</bean>
+	
+	<bean id = "bk" class = "com.test.Book" scope = "singleton" autowire="default">
 		<property name="id" value="101"></property>
 		<property name = "name" value="Java Notes"></property>
 		<property name = "author" value = "Sanskriti"></property>
 		<property name="price" value="200"></property>
-		
+		<property name = "bd" ref="bdobj"></property>
 	</bean>
 
 </beans>
