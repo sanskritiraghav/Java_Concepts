@@ -1,11 +1,15 @@
 package com.test;
+
+import java.util.List;
+
 // book is a bean class
 public class Book {
 	private int id;
 	private String name;
 	private String author;
 	private int price;
-	private BookDetails bd; // a class having another class object as a data member
+	private List<BookDetails> bd;
+//	private BookDetails bd; // a class having another class object as a data member
 	public int getId() {
 		return id;
 	}
@@ -31,15 +35,24 @@ public class Book {
 		this.price = price;
 	}
 
-	public BookDetails getBd() {
+	
+//	public BookDetails getBd() {
+//		return bd;
+//	}
+//	public void setBd(BookDetails bd) {
+//		this.bd = bd;
+//	}
+	
+	public List<BookDetails> getBd() {
 		return bd;
 	}
-	public void setBd(BookDetails bd) {
+	public void setBd(List<BookDetails> bd) {
 		this.bd = bd;
 	}
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", price=" + price + ", bd=" + bd + "]";
 	}
+	
 	
 }
