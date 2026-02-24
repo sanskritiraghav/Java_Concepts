@@ -1,10 +1,12 @@
 package com.test;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Customer {
 	private int id;
 	private String name;
 	private Address adr;
-	
+	@Autowired //by default setter injection taken
 	public Customer() {
 		
 	}
