@@ -5,6 +5,7 @@ public class Book {
 	private String name;
 	private String author;
 	private int price;
+	private BookDetails bd; // a class having another class object as a data member
 	public int getId() {
 		return id;
 	}
@@ -29,9 +30,16 @@ public class Book {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
+	public BookDetails getBd() {
+		return bd;
+	}
+	public void setBd(BookDetails bd) {
+		this.bd = bd;
+	}
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", price=" + price + "]";
+		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", price=" + price + ", bd=" + bd + "]";
 	}
 	
 }
