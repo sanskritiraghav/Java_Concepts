@@ -1,0 +1,13 @@
+package com.test;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class BookDemo {
+	public static void main(String[] args) {
+		ApplicationContext ctx  = new ClassPathXmlApplicationContext("beans.xml");
+		Book b = (Book)ctx.getBean("bk");
+		System.out.println(b);
+		
+	}
+}
