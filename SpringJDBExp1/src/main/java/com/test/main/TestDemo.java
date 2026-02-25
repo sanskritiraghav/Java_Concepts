@@ -19,6 +19,8 @@ public class TestDemo {
 		obj.setSkill("Java Developer");
 		obj.setManager("Arjun");
 		dao.saveMLATeam(obj);
+		//dao.updateMLATeam(obj);
+		//dao.deleteMLATeamMember(obj);
 		List<MLATeam> list = dao.getAllMembers();
 		list.forEach(team -> 
 					System.out.println(team.getId()+" "+
@@ -28,3 +30,4 @@ public class TestDemo {
 	}
 
 }
+
