@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.test.dao.MLATeamDAO1;
 import com.test.dao.MLATeamDao;
 import com.test.model.MLATeam;
 
@@ -13,12 +14,16 @@ public class TestDemo {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
 		MLATeamDao dao = ctx.getBean("tdao", MLATeamDao.class);
+		
+		MLATeamDAO1 dao1 = ctx.getBean("tdao1", MLATeamDAO1.class);
+		
 		MLATeam obj = new MLATeam();
-		obj.setId(101);
-		obj.setName("Sanskriti");
-		obj.setSkill("Java Developer");
-		obj.setManager("Arjun");
-		dao.saveMLATeam(obj);
+		obj.setId(1226);
+		obj.setName("Amit");
+		obj.setSkill("Python Developer");
+		obj.setManager("Pavan");
+		dao1.createMLATeam(obj);
+		//dao.saveMLATeam(obj);
 		//dao.updateMLATeam(obj);
 		//dao.deleteMLATeamMember(obj);
 		List<MLATeam> list = dao.getAllMembers();
@@ -30,4 +35,3 @@ public class TestDemo {
 	}
 
 }
-
