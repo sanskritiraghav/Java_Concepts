@@ -1,6 +1,8 @@
 package com.test;
 
 
+import java.util.List;
+
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
@@ -26,5 +28,14 @@ public class HelloService {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String greetUserResponse(@QueryParam("msg") String msg) {
 		return msg;
+	}
+	@GET
+	@Path("/list")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<UserDetails> listAllUsersData(){
+		UserDetails u1 = new UserDetails(1,"Sanskriti", "Raghav","sr@dev.com",12345);
+		UserDetails u2 = new UserDetails(2,"Arti", "Raghav","ar@dev.com",14325);
+		UserDetails u3 = new UserDetails(3,"Virat", "Kolhi","vk@dev.com",12543);
+		return List.of(u1,u2,u3);
 	}
 }
