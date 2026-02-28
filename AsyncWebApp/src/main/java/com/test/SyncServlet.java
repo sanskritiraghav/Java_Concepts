@@ -11,17 +11,20 @@ import java.io.PrintWriter;
 @WebServlet("/SyncServlet")
 public class SyncServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
+   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		final long startTime = System.nanoTime();
-		try {
+		try
+		{
 			Thread.sleep(3500);
-		}
-		catch(Exception e) {
+		}catch(Exception e)
+		{
 			e.printStackTrace();
 		}
 		PrintWriter out = response.getWriter();
-		out.println("Work Completed time elapsed : "+(System.nanoTime() - startTime));
+		out.println("Work completed time elapsed : "+(System.nanoTime() - startTime));
 		out.flush();
 	}
 

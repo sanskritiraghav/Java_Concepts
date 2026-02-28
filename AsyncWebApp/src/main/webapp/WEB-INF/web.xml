@@ -11,7 +11,8 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.xhtml</welcome-file>
   </welcome-file-list>
-<!--   <servlet> -->
+  
+<!--     <servlet> -->
 <!--   	<servlet-name>s1</servlet-name> -->
 <!--   	<servlet-class>ABCD</servlet-class> -->
 <!--   	<load-on-startup>1</load-on-startup> -->
@@ -21,9 +22,6 @@
 <!--   	<servlet-name>s2</servlet-name> -->
 <!--   	<servlet-class>xyz</servlet-class> -->
 <!--   	<load-on-startup>2</load-on-startup> -->
-  
 <!--   </servlet> -->
 
-
-	
 </web-app>
