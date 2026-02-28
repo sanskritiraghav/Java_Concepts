@@ -1,6 +1,6 @@
 package com.test;
 
-import java.security.Principal;
+import java.security.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,15 +14,13 @@ import javax.security.auth.callback.PasswordCallback;
 import javax.security.auth.login.LoginException;
 import javax.security.auth.spi.LoginModule;
 
-public class SimpleLoginModule implements LoginModule{
+public class SimpleLoginModule implements LoginModule {
 
 	private Subject subject;
 	private CallbackHandler callbackHandler;
 	private String username;
 	private List<String> roles = new ArrayList<>();
-	private List<UserPrincipal> principals = new ArrayList<>();
-	
-	
+	private List<String> principals = new ArrayList<>();
 	@Override
 	public void initialize(Subject subject, CallbackHandler callbackHandler, Map<String, ?> sharedState,
 			Map<String, ?> options) {
@@ -32,22 +30,25 @@ public class SimpleLoginModule implements LoginModule{
 
 	@Override
 	public boolean login() throws LoginException {
+		
 		NameCallback nameCB = new NameCallback("username");
 		PasswordCallback pasCB = new PasswordCallback("password",false);
 		try {
 			callbackHandler.handle(new Callback[] {nameCB, pasCB});
 			username = nameCB.getName();
 			String password = new String(pasCB.getPassword());
-			if("admin".equals(username) && "java".equals(password)) {
-				roles = Arrays.asList("ADMIN","MANAGER");
+			if("admin".equals(username) && "java".equals(password))
+			{
+				roles = Arrays.asList("ADMIN", "MANAGER");
 				return true;
 			}
-			else if("user".equals(username) && "u123".equals(password)){
-				roles = Arrays.asList("USER","CUSTOMER");
+			else if("user".equals(username) && "u123".equals(password))
+			{
+				roles = Arrays.asList("USER", "CUSTOMER");
 				return true;
 			}
-		}
-		catch (Exception e) {
+		}catch(Exception e)
+		{
 			e.printStackTrace();
 		}
 		return false;
@@ -57,12 +58,11 @@ public class SimpleLoginModule implements LoginModule{
 	public boolean commit() throws LoginException {
 		
 		subject.getPrincipals().add(new UserPrincipal(username));
-		
-		for(String role : roles) {
+		for(String role : roles)
+		{
 			UserPrincipal p = new UserPrincipal(role);
-			principals.add(p);
-			subject.getPrincipals().add((Principal) p);
-			
+			principals.add(username);
+			subject.getPrincipals().add(p);
 		}
 		return true;
 	}
@@ -75,8 +75,10 @@ public class SimpleLoginModule implements LoginModule{
 
 	@Override
 	public boolean logout() throws LoginException {
+		// TODO Auto-generated method stub
 		subject.getPrincipals().removeAll(principals);
-		return true;
+		return false;
 	}
 	
+
 }
